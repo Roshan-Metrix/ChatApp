@@ -5,6 +5,7 @@ import cookieParser
 import dotenv from 'dotenv'
 dotenv.config({ path: '../.env' });
 import authRouter from './routes/authRoutes.js';
+import userRouter from './routes/userRoutes.js'
 import connectDB from './config/mongoose.js';
 
 const app = express();
@@ -25,6 +26,7 @@ app.get('/',(req,res) => {
 })
 
 app.use('/auth/api',authRouter)
+app.use('/api/user',userRouter)
 
 app.listen(port, () => {
     console.log(`Server is listening at ${port}`);
