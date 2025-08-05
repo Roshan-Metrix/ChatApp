@@ -12,7 +12,12 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true
+        required:true,
+        minlength:6
+    },
+    profilePic:{
+        type:String,
+        default:''
     },
     verifyOtp:{
         type:String,
@@ -34,7 +39,11 @@ const userSchema = new mongoose.Schema({
         type:Number,
         default:0
     },
-})
+},
+    {
+        timestamp:true
+    }
+);
 
 const userModel = mongoose.models.user || mongoose.model('user',userSchema);
 

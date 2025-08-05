@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 const userAuth = async (req,res,next) =>{
     const { token } = req.cookies;
 
-    if(!token) return res.json({success:false,message:'Not Authorized , Login Again'})
+    if(!token) return res.status(401).json({success:false,message:'Not Authorized , Login Again'})
 
     try {
 
@@ -12,13 +12,13 @@ const userAuth = async (req,res,next) =>{
        if(decodeToken.id){
         req.userId = decodeToken.id;
        } else{
-        return res.json({success:false,message:"Something Wrong"})
+        return res.json({success:false,message:"Something Went Wrong"})
        }
         
       next();
 
     } catch(error){
-        return res.json({success:false,message: error.message})
+        return res.status(500).json({success:false,message: error.message})
     }
 }  
 
