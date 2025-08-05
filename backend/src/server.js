@@ -1,13 +1,12 @@
 import express from 'express'
-import cookieParser
- from 'cookie-parser';
- import cors from 'cors'
+import cookieParser from 'cookie-parser';
+import cors from 'cors'
 import dotenv from 'dotenv'
-dotenv.config({ path: '../.env' });
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js'
 import connectDB from './config/mongoose.js';
 
+dotenv.config({ path: '../.env' });
 const app = express();
 const port = process.env.PORT || 4000;
 
