@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js'
 import connectDB from './config/mongoose.js';
+import messageRouter from './routes/messageRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -25,6 +26,7 @@ app.get('/',(req,res) => {
 })
 
 app.use('/auth/api',authRouter)
+app.use('/api/message',messageRouter)
 app.use('/api/user',userRouter)
 
 app.listen(port, () => {
