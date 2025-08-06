@@ -6,7 +6,7 @@ import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js'
 import connectDB from './config/mongoose.js';
 
-dotenv.config({ path: '../.env' });
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
