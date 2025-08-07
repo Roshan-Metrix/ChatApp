@@ -171,7 +171,7 @@ export const sendVerifyOtp = async (req, res) => {
 
 export const verifyEmail = async (req, res) => {
   const userId = req.userId;
-  const { otp, email } = req.body;
+  const { otp } = req.body;
 
   if (!userId)
     return res.json({
@@ -182,7 +182,7 @@ export const verifyEmail = async (req, res) => {
   if (!otp) return res.json({ success: false, message: "Missing Details" });
 
   try {
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findById(userId);
 
     if (!user) return res.json({ success: false, message: "User Not Found" });
 

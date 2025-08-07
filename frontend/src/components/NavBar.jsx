@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { UserContent } from '../context/UserContext';
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import { assets } from '../../assets/assets';
+import { assets } from '../assets/assets';
+
 
 const NavBar = () => {
 
@@ -14,7 +15,7 @@ const NavBar = () => {
   const logout = async () => {
     try{
       axios.defaults.withCredentials = true;
-      const { data } = await axios.post(backendUrl + '/api/auth/logout')
+      const { data } = await axios.post(backendUrl + '/auth/api/logout')
       data.success && setIsLoggedin(false)
       data.success && setUserData(false)
       navigate('/')
@@ -26,7 +27,7 @@ const NavBar = () => {
   const sendVerificationOtp = async () => {
     try{
        axios.defaults.withCredentials = true;
-       const { data } = await axios.post(backendUrl + '/api/auth/send-verify-otp')
+       const { data } = await axios.post(backendUrl + '/auth/api/send-verify-otp')
 
        if(data.success){
          navigate('/email-verify')
@@ -43,8 +44,8 @@ const NavBar = () => {
   return (
     <div className='w-full flex justify-between items-center sm:px-15 absolute top-0'>
 
-       <div className='flex items-center gap-2 sm:gap-1'>
-        <img src={assets.logo} alt="" className='w-28 sm:w-20' /><span className=' text-gray-800 font-semibold sm:text-3xl text-2xl '>MiChat</span>
+       <div className='flex items-center gap-2 sm:gap-2 '>
+        <img src={assets.logo} alt="" className='w-13 sm:w-15 sm:pt-2' /><span className=' text-gray-800 font-semibold sm:text-3xl text-2xl pt-3'>MiChat</span>
         </div>
 
         { userData ? 
@@ -60,7 +61,7 @@ const NavBar = () => {
         </div> : 
         <button 
         onClick={() => navigate('/login')}
-        className='flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all cursor-pointer'>Login <img src={assets.arrow_icon} alt='' /></button>
+        className='flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 mt-4 text-gray-800 hover:bg-gray-100 transition-all cursor-pointer'>Login <img src={assets.arrow_icon} alt='' /></button>
         }
 
 
