@@ -8,10 +8,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
+import NavBar from './components/NavBar';
 
 const App = () => {
   return (
       <div>
+        <NavBar/>
         <ToastContainer/>
         <Routes>
           <Route path='/' element={<Home/>} />
