@@ -51,9 +51,10 @@ const Login = () => {
  }
 
   return (
-    <div className='flex items-center justify-center min-h-screen bg-gray-100 px-6 sm:px-0 '>
+    <div className='flex items-center justify-center min-h-screen bg-gray-100 px-6 sm:px-0'>
        
-      <div className='bg-slate-900 p-10 rounded-lg shadow-lg w-full sm:w-96 text-indigo-300 text-sm'>
+       <div className='sm:w-[900px] h-[550px] flex justify-center shadow-xl/30 shadow-emerald-700 p-14 overflow-hidden rounded'>
+      <div className='bg-slate-900 p-10 shadow-lg w-1/2 sm:w-96 w-96 text-indigo-300 text-sm rounded-lg'>
         <h2 className='text-3xl font-semibold text-white text-center mb-3'>{state === 'Sign Up' ? 'Create account' : 'Login'}</h2>
         <p className='text-sm mb-6 text-center'>{state === 'Sign Up' ? 'Create your account' : 'Login to your account!'}</p>
         <form onSubmit={onSubmitHandler}>
@@ -98,6 +99,10 @@ const Login = () => {
         </p>
         )}
         
+      </div>
+      <div className='w-1/2 h-full hidden sm:block relative'>
+              <img src={assets.logo} alt="" className="w-13 sm:w-50 absolute top-20 left-20 sm:left-25" />
+            </div>
       </div>
     </div>
   )

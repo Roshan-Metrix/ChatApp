@@ -64,9 +64,6 @@ useEffect(() => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div onClick={() => navigate('/')} className='cursor-pointer flex absolute top-2 sm:left-10 left-3 gap-2'>
-        <img src={assets.logo} alt="" className='w-13 sm:w-15' /><span className=' text-gray-800 font-semibold sm:text-3xl text-2xl pt-4'>MiChat</span>
-        </div>
 
       <div className="max-w-md w-full rounded-2xl shadow-lg p-8 text-center bg-slate-900">
         <h2 className="text-3xl font-bold mb-3 text-gray-200">Email Verification</h2>
@@ -84,7 +81,7 @@ useEffect(() => {
                 ref={e => inputRefs.current[index] = e}
                 onInput = {(e) => handleInput(e, index)}
                 onKeyDown = {(e) => handleKeyDown(e, index)}
-                className="w-12 h-14 text-2xl text-center border-2 border-gray-300 rounded-lg outline-none bg-gray-100 focus:border-blue-500 focus:bg-white transition"
+                className="w-12 h-14 text-2xl text-center border-2 border-gray-300 rounded-lg outline-none bg-gray-100 text-black focus:border-blue-500 focus:bg-white transition"
               />
             ))}
           </div>
