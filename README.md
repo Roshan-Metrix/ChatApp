@@ -4,4 +4,4 @@
 
 ## Features are Incredible 
 
-// Currently working and implementing new new features 
+// Currently working and implementing new new features .
